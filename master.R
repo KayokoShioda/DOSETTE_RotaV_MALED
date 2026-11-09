@@ -38,33 +38,33 @@ countries <- list(c("BR", "PE")) # list("BR", "PE", c("BR", "PE"))
 # 1a. Cox-based clone-censor-weight analyses (first occurrence)
 for (outcome_choice in outcomes) {
   for (country_choice in countries) {
-    source("../Rota-TTE/1_Cox_dataset.R")
+    source("../DOSETTE_RotaV_MALED/1_Cox_dataset.R")
     dir_name <- make_dir_name("_Cox")
-    source("../Rota-TTE/2_Cox_IPCW.R")
-    source("../Rota-TTE/3_plot_figs_first_outcome.R")
+    source("../DOSETTE_RotaV_MALED/2_Cox_IPCW.R")
+    source("../DOSETTE_RotaV_MALED/3_plot_figs_first_outcome.R")
   }
 }
 
 # 1a-2. Cox-based clone-censor-weight analysis, severe diarrhea (first occurrence)
 outcome_choice <- "severe_diarrhea"
 for (country_choice in countries) {
-  source("../Rota-TTE/1_Cox_dataset.R")
-  source("../Rota-TTE/severe_diarrhea.R")
+  source("../DOSETTE_RotaV_MALED/1_Cox_dataset.R")
+  source("../DOSETTE_RotaV_MALED/severe_diarrhea.R")
   dir_name <- paste0("20261105_Severe_diarrhea_",
                      paste(country_choice, collapse = "_"), "_500sims_Cox")
-  source("../Rota-TTE/2_Cox_IPCW.R")
-  source("../Rota-TTE/3_plot_figs_first_outcome.R")
+  source("../DOSETTE_RotaV_MALED/2_Cox_IPCW.R")
+  source("../DOSETTE_RotaV_MALED/3_plot_figs_first_outcome.R")
 }
 
 # 1b. Nonparametric bounds analysis
 for (outcome_choice in outcomes) {
   for (country_choice in countries) {
-    source("../Rota-TTE/1_Cox_dataset.R")
+    source("../DOSETTE_RotaV_MALED/1_Cox_dataset.R")
     dir_name <- make_dir_name("_Cox")                 # existing IPCW results (df_result_*.csv)
     for (b in c("no_assumption")) {
       dir_name_bounds <- make_dir_name(paste0("_NPB_", b))
-      source(paste0("../Rota-TTE/2b_Cox_NPB_", b, ".R"))
-      source("../Rota-TTE/3b_plot_figs_bounds.R")
+      source(paste0("../DOSETTE_RotaV_MALED/2b_Cox_NPB_", b, ".R"))
+      source("../DOSETTE_RotaV_MALED/3b_plot_figs_bounds.R")
     }
   }
 }
@@ -72,26 +72,26 @@ for (outcome_choice in outcomes) {
 # 2. Pooled logistic regression (first occurrence)
 for (outcome_choice in outcomes) {
   for (country_choice in countries) {
-    source("../Rota-TTE/4_PersonDayDataset_first_outcome.R")
+    source("../DOSETTE_RotaV_MALED/4_PersonDayDataset_first_outcome.R")
     dir_name <- make_dir_name("_plr_first_outcome")
-    source("../Rota-TTE/5_Plr_first_outcome.R")
-    source("../Rota-TTE/3_plot_figs_first_outcome.R")
+    source("../DOSETTE_RotaV_MALED/5_Plr_first_outcome.R")
+    source("../DOSETTE_RotaV_MALED/3_plot_figs_first_outcome.R")
   }
 }
 
 # 3. Cox-based IPCW + negative binomial regression (recurrent outcomes)
 for (outcome_choice in outcomes) {
   for (country_choice in countries) {
-    source("../Rota-TTE/6_Cox_dataset_recurrent_outcomes.R")
+    source("../DOSETTE_RotaV_MALED/6_Cox_dataset_recurrent_outcomes.R")
     dir_name <- make_dir_name("_cox_recurrent_outcomes", nsims = 500)
-    source("../Rota-TTE/7_Cox_ipcw_recurrent_outcomes.R")
+    source("../DOSETTE_RotaV_MALED/7_Cox_ipcw_recurrent_outcomes.R")
   }
 }
 
 # 4. Weight diagnostics
 for (outcome_choice in outcomes) {
   for (country_choice in countries) {
-    source("../Rota-TTE/1_Cox_dataset.R")
-    source("../Rota-TTE/weights_diagnostics.R")
+    source("../DOSETTE_RotaV_MALED/1_Cox_dataset.R")
+    source("../DOSETTE_RotaV_MALED/weights_diagnostics.R")
   }
 }
