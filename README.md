@@ -8,4 +8,5 @@ Delayed:     Dose 1: 63-104 days
              Dose 2: 126-175 days
 
 ## Note:
-`master.R` specifies the order in which to run the R scripts for the analysis.
+* `master.R` specifies the order in which to run the R scripts for the analysis.
+* Update the directory path as needed to point to the folder containing the code.
